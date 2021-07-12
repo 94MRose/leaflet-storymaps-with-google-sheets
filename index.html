@@ -61,6 +61,40 @@
       zoomControl: false,
       tap: false
     });
+    function style_BedrockEra_1_0(feature) {
+            switch(String(feature.properties['ERA_P'])) {
+    case 'MESOPROTEROZOIC (1.0 Ga to 1.6 Ga)':
+                    return {
+                pane: 'pane_BedrockEra_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(221,99,90,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'MESO-TO PALEOPROTEROZOIC (1.0 Ga to 2.5 Ga)':
+                    return {
+                pane: 'pane_BedrockEra_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(88,239,23,1.0)',
+                interactive: true,
+            }
+                    break;
+                }
+        }
   </script>
 
   <script type="text/javascript" src="google-doc-url.js"></script>
