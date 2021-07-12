@@ -365,7 +365,38 @@ $(window).on('load', function() {
                   }
                 }
               }).addTo(map); */
-              geoJsonOverlay = L.geoJson(geojson).addTo(map);
+              //geoJsonOverlay = L.geoJson(geojson).addTo(map);
+              geoJsonOverlay = L.geoJson(geojson, {
+                style: function(feature) {
+                   switch(String(feature.properties['ERA_P'])) {
+                case 'EARLY PALEOZOIC TO NEOPROTEROZOIC (443.7 Ma to 1.0 Ga)':
+                    return {
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(95,238,129,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'MESOARCHEAN (2.8 Ga to 3.2 Ga)':
+                    return {
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(190,216,42,1.0)',
+                interactive: true,
+            }
+                       break;
+                   }
+                }
             });
           }
 
