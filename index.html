@@ -61,21 +61,7 @@
       zoomControl: true,
       tap: false
     });
-    var highlightLayer;
-        function highlightFeature(e) {
-            highlightLayer = e.target;
-
-            if (e.target.feature.geometry.type === 'LineString') {
-              highlightLayer.setStyle({
-                color: '#ffff00',
-              });
-            } else {
-              highlightLayer.setStyle({
-                fillColor: '#ffff00',
-                fillOpacity: 1
-              });
-            }
-        }
+    
   </script>
 
   <script type="text/javascript" src="google-doc-url.js"></script>
