@@ -119,6 +119,24 @@ $(window).on('load', function() {
 
     var markers = [];
 
+    //Add highlight
+    var highlightLayer;
+        function highlightFeature(e) {
+            highlightLayer = e.target;
+
+            if (e.target.feature.geometry.type === 'LineString') {
+              highlightLayer.setStyle({
+                color: '#ffff00',
+              });
+            } else {
+              highlightLayer.setStyle({
+                fillColor: '#ffff00',
+                fillOpacity: 1
+              });
+            }
+        }
+
+    
     var markActiveColor = function(k) {
       /* Removes marker-active class from all markers */
       for (var i = 0; i < markers.length; i++) {
@@ -363,7 +381,11 @@ $(window).on('load', function() {
                     color: feature.properties.color || props.color || '#cccccc',
                     fillOpacity: feature.properties.fillOpacity || props.fillOpacity || 0.5,
                   }
-                }
+                }, mouseout: function(feature){
+                      for (i in feature.target._eventParents) {
+                        feature.target._eventParents[i].resetStyle(feature.target); }
+                  },
+                  mouseover: highlightFeature
               }).addTo(map); 
 
             });
