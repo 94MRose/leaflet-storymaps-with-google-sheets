@@ -119,23 +119,6 @@ $(window).on('load', function() {
 
     var markers = [];
 
-    //Add highlight
-    var highlightLayer;
-        function highlightFeature(e) {
-            highlightLayer = e.target;
-
-            if (e.target.feature.geometry.type === 'LineString') {
-              highlightLayer.setStyle({
-                color: '#ffff00',
-              });
-            } else {
-              highlightLayer.setStyle({
-                fillColor: '#ffff00',
-                fillOpacity: 1
-              });
-            }
-        }
-
     
     var markActiveColor = function(k) {
       /* Removes marker-active class from all markers */
@@ -358,23 +341,7 @@ $(window).on('load', function() {
 
           if (c['GeoJSON Overlay']) {
             $.getJSON(c['GeoJSON Overlay'], function(geojson) {
-
-              var info = '';
-              popprops = allPopupProperties[polygon];
-
-              for (i in popprops) {
-               if (popprops[i] == '') { continue; }
-
-               info += popprops[i][1]
-               ? popprops[i][1].trim()
-               : popprops[i][0].trim();
-
-      var val = feature.properties[popprops[i][0].trim()];
-      info += ': <b>' + (val ? comma(val) : val) + '</b><br>';
-    }
-
-    layer.bindPopup(info);
-              
+         
               // Parse properties string into a JS object
               var props = {};
 
@@ -397,11 +364,7 @@ $(window).on('load', function() {
                     color: feature.properties.color || props.color || '#cccccc',
                     fillOpacity: feature.properties.fillOpacity || props.fillOpacity || 0.5,
                   }
-                }, mouseout: function(feature){
-                      for (i in feature.target._eventParents) {
-                        feature.target._eventParents[i].resetStyle(feature.target); }
-                  },
-                  mouseover: highlightFeature
+                }
               }).addTo(map); 
 
             });
