@@ -34,9 +34,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/style-desktop.css">
   <link rel="stylesheet" href="css/loader.css">
-  
-  <!-- Load Data -->
-  <script src="geojson/TheLandBetween.geojson"></script>
+
 </head>
 
 <body>
@@ -65,34 +63,7 @@
       tap: false
       });
       
-      function style_TheLandBetween_CLCC_3_0() {
-            return {
-                pane: 'pane_TheLandBetween_CLCC_3',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '10,5',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: false,
-            }
-        }
-        map.createPane('pane_TheLandBetween_CLCC_3');
-        map.getPane('pane_TheLandBetween_CLCC_3').style.zIndex = 403;
-        map.getPane('pane_TheLandBetween_CLCC_3').style['mix-blend-mode'] = 'normal';
-        var layer_TheLandBetween_CLCC_3 = new L.geoJson(geojson/TheLandBetween.geojson, {
-            attribution: '',
-            interactive: false,
-            dataVar: 'geojson/TheLandBetween.geojson',
-            layerName: 'layer_TheLandBetween_CLCC_3',
-            pane: 'pane_TheLandBetween_CLCC_3',
-            onEachFeature: pop_TheLandBetween_CLCC_3,
-            style: style_TheLandBetween_CLCC_3_0,
-        });
-        bounds_group.addLayer(layer_TheLandBetween_CLCC_3);
-        map.addLayer(layer_TheLandBetween_CLCC_3);
-        setBounds();
+      
     
     
   </script>
