@@ -359,6 +359,22 @@ $(window).on('load', function() {
           if (c['GeoJSON Overlay']) {
             $.getJSON(c['GeoJSON Overlay'], function(geojson) {
 
+              var info = '';
+              popprops = allPopupProperties[polygon];
+
+              for (i in popprops) {
+               if (popprops[i] == '') { continue; }
+
+               info += popprops[i][1]
+               ? popprops[i][1].trim()
+               : popprops[i][0].trim();
+
+      var val = feature.properties[popprops[i][0].trim()];
+      info += ': <b>' + (val ? comma(val) : val) + '</b><br>';
+    }
+
+    layer.bindPopup(info);
+              
               // Parse properties string into a JS object
               var props = {};
 
