@@ -36,6 +36,15 @@
   <link rel="stylesheet" href="css/loader.css">
   
   <!-- Load Data -->
+  <script src="js/qgis2web_expressions.js"></script>
+  <script src="js/leaflet.js"></script>
+  <script src="js/leaflet.rotatedMarker.js"></script>
+  <script src="js/leaflet.pattern.js"></script>
+  <script src="js/leaflet-hash.js"></script>
+  <script src="js/Autolinker.min.js"></script>
+  <script src="js/rbush.min.js"></script>
+  <script src="js/labelgun.min.js"></script>
+  <script src="js/labels.js"></script>
   <script src="geojson/TheLandBetwee.geojson"></script>
 </head>
 
@@ -63,6 +72,7 @@
       scrollWheelZoom: true,
       zoomControl: true,
       tap: false
+      });
       
       function style_TheLandBetween_CLCC_3_0() {
             return {
@@ -92,7 +102,7 @@
         bounds_group.addLayer(layer_TheLandBetween_CLCC_3);
         map.addLayer(layer_TheLandBetween_CLCC_3);
         setBounds();
-    });
+    
     
   </script>
 
